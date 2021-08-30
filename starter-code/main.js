@@ -425,9 +425,9 @@ mongoClient.connect(`mongodb://localhost:27017/crunchbase`, (error, db) => {
                     break; 
 
                     case "17":
-                        //Names and locations of companies that have offices in London
+                        //How many companies that has "social-network" in tag-list and founded between 2002 and 2016 inclusive and has offices in New York
                         db.collection("companies")
-                        .find({$and: [{"tag_list": {$regex: "social-network"}}, {"founded_year": { $gte: 2002 }}, {"founded_year": { $lte: 2016 }}, {"offices.city": "London"}]}, {"name": 1, _id: 0 }) 
+                        .find({$and: [{"tag_list": {$regex: "social-network"}}, {"founded_year": { $gte: 2002 }}, {"founded_year": { $lte: 2016 }}, {"offices.city": "New York"}]}, {"name": 1, _id: 0 }) 
                         .count((error, result) => {
                             if (error) {
                                 console.log(error);
